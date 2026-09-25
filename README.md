@@ -3,4 +3,5 @@ Test for LMV with vagrant
 
 ##how to chambear 
 
-lore impsun?
+lore impsun 
+how to install samp
