@@ -1,10 +1,17 @@
-Vagrant.configure("2") do |config|
-config.vm.box = "debian/bookworm64" 
-config.vm.network "forwarded_port", guest: 80, host: 8080 
-config.vm.provision "install_packages", 
-type: "shell",
-path: "scripts/01_install_packages.sh"
-config.vm.provision "configure_lamp",
-type: "shell",
-path: "scripts/02_configure_lamp.sh"
-end
+#!/usr/bin/env bash
+# scripts/01_install_packages.sh
+# Update repositories and install LAMP packages
+set -xeu
+export DEBIAN_FRONTEND=noninteractive
+1
+apt-get update -y
+2
+apt-get install -y \
+apache2 \
+apache2-doc \
+mariadb-server \
+mariadb-client \
+php \
+libapache2-mod-php \
+php-mysql
+echo "# Package installation complete."
